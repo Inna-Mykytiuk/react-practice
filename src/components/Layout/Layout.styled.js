@@ -38,7 +38,7 @@ export const StyledNavLink = styled(NavLink)`
   &.active,
   &:hover,
   &:focus {
-    color: #eb9486;
+    color: rgb(75, 68, 83);
     text-shadow: 0 0 15px #eb9486;
   }
 `;
