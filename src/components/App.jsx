@@ -5,9 +5,7 @@ import Home from 'pages/Home';
 
 // const Layout = lazy(() => import ('./Layout/Layout'));
 // const Home = lazy(() => import ('../pages/Home'));
-
-
-export const App = () => {
+const App = () => {
   return (
     <>
       <Routes>
@@ -19,3 +17,5 @@ export const App = () => {
     </>
   );
 };
+
+export default App;

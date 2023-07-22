@@ -14,7 +14,7 @@ export const StyledHeader = styled.header`
   gap: 15px;
   color: rgb(0, 0, 0);
   height: 100%;
-  background: rgba(110, 110, 110, 0.25);
+  background-color: #00466e1a;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 8px 32px 0px;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -28,7 +28,7 @@ export const StyledNavLink = styled(NavLink)`
   font-weight: 500;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
-  color: #e4c3ad;
+  color: #fff;
   cursor: pointer;
 
   &:not(:last-child) {

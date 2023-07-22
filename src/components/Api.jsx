@@ -13,7 +13,7 @@ import axios from 'axios';
 
 
 //Отримання даних за допомогою axios
-export const fetchData = async () => {
+const fetchData = async () => {
   try {
     const response = await axios.get('https://jsonplaceholder.typicode.com/users');
     console.log(response.data)
@@ -22,3 +22,5 @@ export const fetchData = async () => {
     console.log(error.message);
   }
 }
+
+export default fetchData;

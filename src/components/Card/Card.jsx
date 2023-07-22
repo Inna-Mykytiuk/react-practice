@@ -1,7 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { fetchData } from "./Api";
-import { SectionCard,CardList } from "./Card.styled";
+import fetchData from "../Api";
+import { SectionCard, CardList } from "./Card.styled";
+import {Container} from "../App.styled"
+
 
 const Card =  () => {
   const [records, setrecords] = useState([]);
@@ -25,7 +27,8 @@ const Card =  () => {
 
   return (
     <SectionCard>
-      <CardList>
+    <Container>
+    <CardList>
         {records.map(record => (
           <li key={record.id}>
           <h2>{record.id}. {record.name}</h2>
@@ -35,6 +38,7 @@ const Card =  () => {
           </li>
         ))}
       </CardList>
+    </Container>
     </SectionCard>
 
   );

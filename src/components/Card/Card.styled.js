@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const SectionCard = styled.section`
+  margin: 50px 0;
 
   h2 {
     font-size: 1.5rem;
@@ -15,32 +16,6 @@ export const SectionCard = styled.section`
   }
 `;
 
-// export const CardList = styled.ul`
-//   display: flex;
-//   flex-wrap: wrap;
-//   gap: 20px;
-//   padding: 0;
-//   margin: 0;
-
-//   li {
-//     flex: 0 0 calc(33.33% - 40px);
-//     height: 100%;
-//     padding: 10px;
-//     background-color: #00466e1a;
-//     backdrop-filter: blur(10px);
-//     box-shadow: 0 4px 4px #0000004d;
-//     border-radius: 20px;
-//     margin-bottom: 20px;
-
-//     @media (max-width: 768px) {
-//       flex-basis: calc(50% - 40px);
-//     }
-
-//     @media (max-width: 480px) {
-//       flex-basis: calc(100% - 40px);
-//     }
-//   }
-// `;
 
 export const CardList = styled.ul`
   display: flex;
@@ -48,7 +23,6 @@ export const CardList = styled.ul`
   justify-content: center;
   gap: 24px;
   list-style: none;
-  margin-bottom: 30px;
 
   li {
   display: flex;
