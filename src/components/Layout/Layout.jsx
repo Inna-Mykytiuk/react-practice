@@ -2,15 +2,18 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { LoadingIndicator } from './LoadingDots';
 import { StyledHeader, StyledNavLink } from './Layout.styled';
+import { Container } from 'components/App.styled';
 
 const Layout = () => {
   return (
     <>
       <StyledHeader>
-        <nav>
+      <Container>
+      <nav>
           <StyledNavLink to="/">Home</StyledNavLink>
           <StyledNavLink to="/cards">Cards</StyledNavLink>
         </nav>
+      </Container>
       </StyledHeader>
 
       <Suspense fallback={<LoadingIndicator />}>

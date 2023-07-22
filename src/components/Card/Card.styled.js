@@ -9,11 +9,6 @@ export const SectionCard = styled.section`
     text-shadow: rgba(255, 255, 255, 0.1) -1px -1px 1px,
       rgba(0, 0, 0, 0.5) 1px 1px 1px;
   }
-
-  p {
-    font-size: 20px;
-    color: rgb(57, 23, 23);
-  }
 `;
 
 
@@ -44,5 +39,15 @@ export const CardList = styled.ul`
     scale: 1.03;
   }
   }`
+
+export const CardText = styled.p`
+  font-size: 18px;
+  color: rgb(14 7 7);
+`
+
+export const Email = styled.p`
+  font-size: 16px;
+  color: #fff;
+`
 
 

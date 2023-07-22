@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import fetchData from "../../services/Api"
-import { SectionCard, CardList } from "./Card.styled";
+import { SectionCard, CardList, CardText, Email } from "./Card.styled";
 import {Container} from "../App.styled"
 
 
@@ -32,9 +32,9 @@ const Card =  () => {
         {records.map(record => (
           <li key={record.id}>
           <h2>{record.id}. {record.name}</h2>
-          <p>Company name: {record.company.name}</p>
-          <p>{record.email}</p>
-          <p>{record.website}</p>
+          <CardText>Company name: {record.company.name}</CardText>
+          <Email>{record.email}</Email>
+          <CardText>{record.website}</CardText>
           </li>
         ))}
       </CardList>
