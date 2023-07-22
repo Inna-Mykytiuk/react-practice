@@ -24,7 +24,7 @@ export const CardList = styled.ul`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 250px;
+  width: 320px;
 
   padding: 10px 20px;
   text-align: center;
