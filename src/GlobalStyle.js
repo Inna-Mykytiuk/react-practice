@@ -4,7 +4,11 @@ import 'modern-normalize';
 export const GlobalStyle = createGlobalStyle`
   body {
   margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Roboto Slab', serif;;
+    ${'' /* font-family: -apple-system, BlinkMacSystemFont, 'Roboto Slab', serif;;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; */}
+
+    font-family: -apple-system,BlinkMacSystemFont,'Amatic SC', cursive;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 

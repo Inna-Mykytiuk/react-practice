@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import fetchData from "../Api";
+import fetchData from "../../services/Api"
 import { SectionCard, CardList } from "./Card.styled";
 import {Container} from "../App.styled"
 

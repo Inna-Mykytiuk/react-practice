@@ -24,7 +24,7 @@ export const StyledHeader = styled.header`
 
 export const StyledNavLink = styled(NavLink)`
   display: inline-block;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 500;
   text-decoration: none;
   transition: color 0.2s ease-in-out;

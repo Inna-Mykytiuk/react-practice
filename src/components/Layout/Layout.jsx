@@ -9,7 +9,7 @@ const Layout = () => {
       <StyledHeader>
         <nav>
           <StyledNavLink to="/">Home</StyledNavLink>
-          {/* <StyledNavLink to="/movies">Movies</StyledNavLink> */}
+          <StyledNavLink to="/cards">Cards</StyledNavLink>
         </nav>
       </StyledHeader>
 
