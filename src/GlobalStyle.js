@@ -8,9 +8,10 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; */}
 
-    font-family: -apple-system,BlinkMacSystemFont,'Amatic SC', cursive;
+    ${'' /* font-family: -apple-system,BlinkMacSystemFont,'Amatic SC', cursive;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    -moz-osx-font-smoothing: grayscale; */}
+    font-family: 'Architects Daughter', cursive;
 
   background: url(https://images.unsplash.com/photo-1519750783826-e2420f4d687f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80);
   background-repeat: no-repeat;
