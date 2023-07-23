@@ -1,9 +1,4 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-// import Layout from './Layout/Layout';
-// import Home from 'pages/Home';
-// import Cards from 'pages/Cards';
-// import About from '../pages/About';
-// import Contacts from './Contacts/Contacts';
 import { lazy, Suspense } from 'react';
 import { LoadingIndicator } from '../components/Layout/LoadingDots';
 
@@ -32,8 +27,3 @@ const App = () => {
 
 export default App;
 
-
-// import { lazy } from 'react';
-
-// const Layout = lazy(() => import ('./Layout/Layout'));
-// const Home = lazy(() => import ('../pages/Home'));
