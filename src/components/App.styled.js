@@ -16,3 +16,20 @@ export const Container = styled.div`
   max-width: 100%;
   padding: 0 150px;
 `
+
+export const Title = styled.h1`
+  font-size: 26px;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  margin: 0px;
+  text-shadow: rgba(255, 255, 255, 0.1) -1px -1px 1px,
+    rgba(0, 0, 0, 0.5) 1px 1px 1px;
+`;
+
+export const Text = styled.p`
+  font-size: 18px;
+  color: rgb(14 7 7);
+  text-align: center;
+`
+

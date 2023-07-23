@@ -1,12 +1,16 @@
 import React from 'react';
-import Card from 'components/Card/Card';
+import { Container, Title, Section } from 'components/App.styled';
+
 
 
 const Home = () => {
   return (
-    <>
-      <Card />
-    </>
+    <Section>
+      <Container>
+      <Title>Home page</Title>
+    </Container>
+    </Section>
+
   )
 }
 
