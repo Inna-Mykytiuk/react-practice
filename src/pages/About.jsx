@@ -18,7 +18,7 @@ const About = () => {
         <List>
           <ListItem>
           <StyledLink to="/about/contacts" state={{ fromAbout: true }}>
-            Contacts
+            Cards
           </StyledLink>
           </ListItem>
         </List>

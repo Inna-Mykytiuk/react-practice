@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import fetchData from "../../services/Api"
-import { SectionCard, CardList, CardText, Email } from "./Card.styled";
-import {Container} from "../App.styled"
+import { CardList, CardText, Email } from "./Card.styled";
+
 
 
 const Card =  () => {
@@ -26,8 +26,8 @@ const Card =  () => {
   }, [])
 
   return (
-    <SectionCard>
-    <Container>
+
+
     <CardList>
         {records.map(record => (
           <li key={record.id}>
@@ -38,8 +38,6 @@ const Card =  () => {
           </li>
         ))}
       </CardList>
-    </Container>
-    </SectionCard>
 
   );
 }

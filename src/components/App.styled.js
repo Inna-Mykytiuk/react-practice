@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-  padding: 100px 150px;
+  margin: 50px auto;
 `;
 
 export const MainHeader = styled.h1`

@@ -59,6 +59,16 @@ export const LoadingDots = styled.div`
   height: 100vh;
 `;
 
+// export const Dot = styled.div`
+//   display: inline-block;
+//   width: 20px;
+//   height: 20px;
+//   margin-right: 10px;
+//   border-radius: 50%;
+//   background-color: #1c85ff;
+//   animation: ${bounce} 1s infinite ease-in-out;
+//   /* animation-delay: ${({ delay }) => delay}; */
+// `;
 export const Dot = styled.div`
   display: inline-block;
   width: 20px;
@@ -67,5 +77,6 @@ export const Dot = styled.div`
   border-radius: 50%;
   background-color: #1c85ff;
   animation: ${bounce} 1s infinite ease-in-out;
-  animation-delay: ${({ delay }) => delay};
+  /* Використовуємо @ перед назвою властивості для автоматичного фільтрування невідомих властивостей */
+  ${({ delay }) => delay && `animation-delay: ${delay};`}
 `;

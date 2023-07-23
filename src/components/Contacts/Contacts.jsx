@@ -1,19 +1,20 @@
-import { Container, Section, Title } from 'components/App.styled'
+import {  Title } from 'components/App.styled'
 import React from 'react'
 import { useLocation } from 'react-router-dom';
+import Card from 'components/Card/Card';
+import { SectionCard } from 'components/Card/Card.styled';
+
 
 const Contacts = () => {
   const location = useLocation();
   return (
-    <Section>
-    <Container>
+    <SectionCard>
       <Title>
-      Contacts
+      Cards
       {location.state && location.state.fromAbout && ' '}
       </Title>
-    </Container>
-
-    </Section>
+    <Card/>
+    </SectionCard>
   )
 }
 
