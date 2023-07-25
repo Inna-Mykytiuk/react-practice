@@ -1,8 +1,8 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { LoadingIndicator } from '../components/Layout/LoadingDots';
-// import LogIn from 'pages/LogIn';
 import PrivatRoute from 'utils/route/privatRoute';
+import AuthRoot from './auth/AuthRoot';
 
 const Layout = lazy(() => import('./Layout/Layout'));
 const Home = lazy(() => import('pages/Home'));
@@ -19,7 +19,8 @@ const App = () => {
           <Route index element={<Home />} />
         </Route>
 
-          {/* <Route path="login"element={<LogIn />} /> */}
+          <Route path="login"element={<AuthRoot />} />
+          <Route path="register"element={<AuthRoot/>} />
           <Route path="cards" element={<Cards />} />
           <Route path="about" element={<About />}>
             <Route path="contacts" element={<Contacts />} />
