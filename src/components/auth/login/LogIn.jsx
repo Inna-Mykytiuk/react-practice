@@ -41,7 +41,7 @@
 
 import {useState} from 'react'
 import { useAuth } from '../auth';
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, useLocation} from 'react-router-dom'
 import React from 'react'
 import { Button } from 'components/Button/Button';
 
@@ -52,12 +52,16 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const auth = useAuth()
   const navigate = useNavigate()
+  const location = useLocation();
+
+  const redirectPath = location.state?.path || '/'
 
   const handleLogin = async (e) => {
     e.preventDefault();
     auth.login({ user, email, password })
 
-    navigate('/profile')
+    // navigate('/profile')
+    navigate(redirectPath, {replace: true})
   };
 
   return (
