@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const StyledButton = styled.button`
-  display: block;
+  display: inline;
   padding: 8px 12px;
   border-radius: 4px;
   border: none;
-  width: 60%;
+  width: 10%;
   text-align: center;
   margin-top: 20px;
 

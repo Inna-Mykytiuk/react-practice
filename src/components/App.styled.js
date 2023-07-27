@@ -15,6 +15,10 @@ export const SecondaryHeader = styled.h2`
 export const Container = styled.div`
   max-width: 100%;
   padding: 0 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 
 export const Title = styled.h1`
