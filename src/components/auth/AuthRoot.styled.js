@@ -51,6 +51,7 @@ export const StyledTextField = styled(TextField)`
   border-radius: 5px;
   outline: none;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 10px;
+  color: #fff;
 
   &:focus-within {
     border-radius: 5px;
@@ -58,7 +59,6 @@ export const StyledTextField = styled(TextField)`
     fieldset {
       border: none;
       outline: none;
-      color: red;
     }
   }
 

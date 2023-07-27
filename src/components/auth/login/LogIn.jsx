@@ -1,6 +1,6 @@
 // import React from 'react';
 // import { Title, SecondTitle, Text, LinkText } from 'components/App.styled';
-// import { StyledTextField } from '../AuthRoot.styled';
+import { StyledTextField } from '../AuthRoot.styled';
 // import { Button } from 'components/Button/Button';
 
 // const LogIn = ({ setEmail, setPassword }) => {
@@ -44,6 +44,16 @@ import { useAuth } from '../auth';
 import {useNavigate, useLocation} from 'react-router-dom'
 import React from 'react'
 import { Button } from 'components/Button/Button';
+import { TextField } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const defaultTheme = createTheme({
+  palette: {
+    primary: {
+      main: '#FFB3CB',
+    },
+  },
+});
 
 
 const Login = () => {
@@ -65,7 +75,17 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <ThemeProvider theme={defaultTheme}>
+      <TextField
+        required
+        fullWidth
+        id="name"
+        label="Name"
+        autoComplete="given-name"
+        name="name"
+        autoFocus
+        sx={{ boxShadow: 3 }}
+      />
       <label>Username: {' '}
       <input type='text' onChange={(e) => setUser(e.target.value)}></input>
       </label>
@@ -78,7 +98,7 @@ const Login = () => {
       <Button type="submit" onClick={handleLogin}>
         LogIn
       </Button>
-    </div>
+    </ThemeProvider>
   )
 }
 
