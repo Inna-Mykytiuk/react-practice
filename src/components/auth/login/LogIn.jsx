@@ -29,13 +29,6 @@ const Login = () => {
 
   const onSignIn = location.pathname === '/login';
 
-  // useEffect(() => {
-  //   // Reset the input fields when the component mounts
-  //   setUser('');
-  //   setEmail('');
-  //   setPassword('');
-  // }, []);
-
   const handleLogin = async e => {
     e.preventDefault();
     auth.login({ user, email, password });
@@ -44,22 +37,29 @@ const Login = () => {
     navigate(redirectPath, { replace: true });
   };
 
+  if (auth.user) {
+    return (
+      <ThemeProvider theme={defaultTheme}>
+        <Section>
+          <Container>
+            <Title>Already Logged In</Title>
+            <SecondTitle>You are already logged in as {auth.user.name}.</SecondTitle>
+            <Link to="/profile" variant="body2" color="primary">
+              Go to Profile
+            </Link>
+          </Container>
+        </Section>
+      </ThemeProvider>
+    );
+  }
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <Section>
-        <Container
-        >
+        <Container>
           <Title>Authorization</Title>
           <SecondTitle>Enter your login and password</SecondTitle>
-          <Form
-
-          // height: '100vh',
-          // backgroundImage: `url("https:")`,
-          // backgroundRepeat: 'no-repeat',
-          // backgroundSize: 'cover',
-          // backgroundPosition: 'center',
-
-        >
+          <Form>
             <TextField
               required
               fullWidth
