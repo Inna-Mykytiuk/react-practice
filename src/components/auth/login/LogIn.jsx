@@ -1,6 +1,6 @@
 // import React from 'react';
 import { Title, SecondTitle, Text, LinkText } from 'components/App.styled';
-// import { StyledTextField } from '../AuthRoot.styled';
+import { StyledTextField } from '../AuthRoot.styled';
 // import { Button } from 'components/Button/Button';
 
 // const LogIn = ({ setEmail, setPassword }) => {
@@ -102,6 +102,7 @@ const Login = () => {
         type='text'
         placeholder='Enter your name'
         value={user}
+        margin="normal"
         // helperText={
         //   'Example of valid email address: qwerty1@example.com'
         // }
@@ -109,19 +110,20 @@ const Login = () => {
       <TextField
         required
         fullWidth
-        id="email"
+        // id="email"
         label="Email"
         autoComplete="off"
         // autoComplete="given-name"
         name="email"
         autoFocus
+        margin="normal"
         sx={{ boxShadow: 3 }}
         onChange={(e) => setEmail(e.target.value)}
         type='text'
         placeholder='Enter your email'
-        value={email}
+        // value={email}
       />
-      <TextField
+      {/* <TextField
         required
         fullWidth
         id="password"
@@ -135,6 +137,16 @@ const Login = () => {
         type='password'
         placeholder='Enter your password'
         value={password}
+      /> */}
+      <StyledTextField
+        type="password"
+        fullWidth={true}
+        margin="normal"
+        label="Password"
+        variant="outlined"
+        placeholder="Enter your password"
+        onChange={e => setPassword(e.target.value)}
+        autoComplete="current-password"
       />
       <Button type="submit" onClick={handleLogin}>
         LogIn
