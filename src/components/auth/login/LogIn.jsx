@@ -1,6 +1,6 @@
 // import React from 'react';
 // import { Title, SecondTitle, Text, LinkText } from 'components/App.styled';
-import { StyledTextField } from '../AuthRoot.styled';
+// import { StyledTextField } from '../AuthRoot.styled';
 // import { Button } from 'components/Button/Button';
 
 // const LogIn = ({ setEmail, setPassword }) => {
