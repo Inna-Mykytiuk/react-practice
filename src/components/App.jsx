@@ -11,6 +11,7 @@ const Cards = lazy(() => import('pages/Cards'));
 const About = lazy(() => import('pages/About'));
 const Contacts  = lazy(() => import('./Contacts/Contacts'));
 const Login  = lazy(() => import('./auth/login/LogIn'));
+const Register  = lazy(() => import('./auth/register/Register'));
 const Profile  = lazy(() => import('./Profile/Profile'));
 // const AuthRoot = lazy(() => import('./auth/AuthRoot'));
 
@@ -24,16 +25,15 @@ const App = () => {
 
             <Route index element={<Home />} />
             <Route path="cards" element={<PrivateRoute><Cards /></PrivateRoute>} />
-
             <Route path="profile" element={<PrivateRoute><Profile/></PrivateRoute>} />
 
-            <Route path="about" element={<About />}>
+            <Route path="about" element={<PrivateRoute><About /></PrivateRoute>}>
               <Route path="contacts" element={<Contacts />} />
             </Route>
 
 
           <Route path="login"element={<Login />} />
-          {/* <Route path="register"element={<AuthRoot/>} /> */}
+          <Route path="register"element={<Register/>} />
 
           <Route path="*" element={<Navigate to="/" />} />
         </Route>

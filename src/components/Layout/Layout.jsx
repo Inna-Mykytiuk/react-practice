@@ -15,12 +15,14 @@ const Layout = () => {
             <StyledNavLink to="/">Home</StyledNavLink>
 
             {!auth.user ? (
+              <>
               <StyledNavLink to="/login">Login</StyledNavLink>
+              <StyledNavLink to="/register">Register</StyledNavLink>
+              </>
             ) : (
               <>
                 <StyledNavLink to="/cards">Cards</StyledNavLink>
                 <StyledNavLink to="/about">About</StyledNavLink>
-                {/* <StyledNavLink to="/register">Register</StyledNavLink> */}
                 <StyledNavLink to="/profile">Profile</StyledNavLink>
               </>
             )}

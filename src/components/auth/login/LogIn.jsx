@@ -1,14 +1,13 @@
-import { Title, SecondTitle, Text, LinkText } from 'components/App.styled';
-// import { Form } from '../AuthRoot.styled';
-import { useState, useEffect } from 'react';
+import { Title, SecondTitle, Text, LinkText, Section, Container } from 'components/App.styled';
+import { Form } from '../AuthRoot.styled';
+import { useState } from 'react';
 import { useAuth } from '../auth';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import React from 'react';
 import { Button } from 'components/Button/Button';
 import { TextField } from '@mui/material';
-import { Box } from '@mui/material';
+// import { Box } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Section, Container } from 'components/App.styled';
 
 const defaultTheme = createTheme({
   palette: {
@@ -28,12 +27,14 @@ const Login = () => {
 
   const redirectPath = location.state?.path || '/profile';
 
-  useEffect(() => {
-    // Reset the input fields when the component mounts
-    setUser('');
-    setEmail('');
-    setPassword('');
-  }, []);
+  const onSignIn = location.pathname === '/login';
+
+  // useEffect(() => {
+  //   // Reset the input fields when the component mounts
+  //   setUser('');
+  //   setEmail('');
+  //   setPassword('');
+  // }, []);
 
   const handleLogin = async e => {
     e.preventDefault();
@@ -50,18 +51,14 @@ const Login = () => {
         >
           <Title>Authorization</Title>
           <SecondTitle>Enter your login and password</SecondTitle>
-          <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'column',
+          <Form
+
           // height: '100vh',
           // backgroundImage: `url("https:")`,
           // backgroundRepeat: 'no-repeat',
           // backgroundSize: 'cover',
           // backgroundPosition: 'center',
-        }}
+
         >
             <TextField
               required
@@ -114,10 +111,14 @@ const Login = () => {
             <Button type="submit" onClick={handleLogin}>
               LogIn
             </Button>
-            <Text>
-              Don't have an account? <LinkText>Registration</LinkText>
-            </Text>
-          </Box>
+            {onSignIn && (
+              <Text>`Don't have an account?`
+              <Link to={`/register`} variant="body2" color="primary">
+              <LinkText> Registration</LinkText>
+              </Link>
+              </Text>
+              )}
+          </Form>
         </Container>
       </Section>
     </ThemeProvider>
