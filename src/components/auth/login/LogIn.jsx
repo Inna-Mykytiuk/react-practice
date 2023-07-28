@@ -39,7 +39,7 @@
 
 // export default LogIn;
 
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import { useAuth } from '../auth';
 import {useNavigate, useLocation} from 'react-router-dom'
 import React from 'react'
@@ -57,14 +57,21 @@ const defaultTheme = createTheme({
 
 
 const Login = () => {
-  const [user, setUser] = useState(null)
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [user, setUser] = useState('')
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const auth = useAuth()
   const navigate = useNavigate()
   const location = useLocation();
 
   const redirectPath = location.state?.path || '/profile'
+
+  useEffect(() => {
+    // Reset the input fields when the component mounts
+    setUser('');
+    setEmail('');
+    setPassword('');
+  }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -81,20 +88,52 @@ const Login = () => {
         fullWidth
         id="name"
         label="Name"
-        autoComplete="given-name"
+        // autoComplete="given-name"
         name="name"
         autoFocus
         sx={{ boxShadow: 3 }}
+        onChange={(e) => setUser(e.target.value)}
+        type='text'
+        placeholder='Enter your name'
+        value={user}
+        // helperText={
+        //   'Example of valid email address: qwerty1@example.com'
+        // }
       />
-      <label>Username: {' '}
-      <input type='text' onChange={(e) => setUser(e.target.value)}></input>
-      </label>
-      <label>Email: {' '}
-      <input type='text' onChange={(e) => setEmail(e.target.value)}></input>
-      </label>
-      <label>Password: {' '}
-      <input type='password' onChange={(e) => setPassword(e.target.value)}></input>
-      </label>
+      <TextField
+        required
+        fullWidth
+        id="email"
+        label="Email"
+        // autoComplete="given-name"
+        name="email"
+        autoFocus
+        sx={{ boxShadow: 3 }}
+        onChange={(e) => setEmail(e.target.value)}
+        type='text'
+        placeholder='Enter your email'
+        value={email}
+        // helperText={
+        //   'Example of valid email address: qwerty1@example.com'
+        // }
+      />
+      <TextField
+        required
+        fullWidth
+        id="password"
+        label="Password"
+        // autoComplete="given-name"
+        name="password"
+        autoFocus
+        sx={{ boxShadow: 3 }}
+        onChange={(e) => setPassword(e.target.value)}
+        type='password'
+        placeholder='Enter your password'
+        value={password}
+        // helperText={
+        //   'Example of valid email address: qwerty1@example.com'
+        // }
+      />
       <Button type="submit" onClick={handleLogin}>
         LogIn
       </Button>
