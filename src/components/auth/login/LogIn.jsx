@@ -57,9 +57,9 @@ const defaultTheme = createTheme({
 
 
 const Login = () => {
-  const [user, setUser] = useState('')
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [user, setUser] = useState(null)
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
   const auth = useAuth()
   const navigate = useNavigate()
   const location = useLocation();
