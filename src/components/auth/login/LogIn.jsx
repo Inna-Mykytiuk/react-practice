@@ -1,5 +1,5 @@
 // import React from 'react';
-// import { Title, SecondTitle, Text, LinkText } from 'components/App.styled';
+import { Title, SecondTitle, Text, LinkText } from 'components/App.styled';
 // import { StyledTextField } from '../AuthRoot.styled';
 // import { Button } from 'components/Button/Button';
 
@@ -46,6 +46,7 @@ import React from 'react'
 import { Button } from 'components/Button/Button';
 import { TextField } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Section, Container } from 'components/App.styled';
 
 const defaultTheme = createTheme({
   palette: {
@@ -83,11 +84,16 @@ const Login = () => {
 
   return (
     <ThemeProvider theme={defaultTheme}>
+    <Section>
+      <Container>
+      <Title>Authorization</Title>
+    <SecondTitle>Enter your login and password</SecondTitle>
       <TextField
         required
         fullWidth
         id="name"
         label="Name"
+        autoComplete="off"
         // autoComplete="given-name"
         name="name"
         autoFocus
@@ -105,6 +111,7 @@ const Login = () => {
         fullWidth
         id="email"
         label="Email"
+        autoComplete="off"
         // autoComplete="given-name"
         name="email"
         autoFocus
@@ -113,15 +120,13 @@ const Login = () => {
         type='text'
         placeholder='Enter your email'
         value={email}
-        // helperText={
-        //   'Example of valid email address: qwerty1@example.com'
-        // }
       />
       <TextField
         required
         fullWidth
         id="password"
         label="Password"
+        autoComplete="off"
         // autoComplete="given-name"
         name="password"
         autoFocus
@@ -130,13 +135,18 @@ const Login = () => {
         type='password'
         placeholder='Enter your password'
         value={password}
-        // helperText={
-        //   'Example of valid email address: qwerty1@example.com'
-        // }
       />
       <Button type="submit" onClick={handleLogin}>
         LogIn
       </Button>
+      <Text>
+      Don't have an account? <LinkText>Registration</LinkText>
+      </Text>
+
+      </Container>
+
+    </Section>
+
     </ThemeProvider>
   )
 }
