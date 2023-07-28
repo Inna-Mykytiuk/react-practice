@@ -1,6 +1,6 @@
 // import React from 'react';
 import { Title, SecondTitle, Text, LinkText } from 'components/App.styled';
-import { StyledTextField } from '../AuthRoot.styled';
+import {  Form } from '../AuthRoot.styled';
 // import { Button } from 'components/Button/Button';
 
 // const LogIn = ({ setEmail, setPassword }) => {
@@ -88,7 +88,8 @@ const Login = () => {
       <Container>
       <Title>Authorization</Title>
     <SecondTitle>Enter your login and password</SecondTitle>
-      <TextField
+    <Form>
+    <TextField
         required
         fullWidth
         id="name"
@@ -112,7 +113,7 @@ const Login = () => {
         fullWidth
         // id="email"
         label="Email"
-        autoComplete="off"
+        autoComplete="new-email"
         // autoComplete="given-name"
         name="email"
         autoFocus
@@ -121,14 +122,14 @@ const Login = () => {
         onChange={(e) => setEmail(e.target.value)}
         type='text'
         placeholder='Enter your email'
-        // value={email}
+        value={email}
       />
-      {/* <TextField
+      <TextField
         required
         fullWidth
         id="password"
         label="Password"
-        autoComplete="off"
+        autoComplete="new-password"
         // autoComplete="given-name"
         name="password"
         autoFocus
@@ -137,8 +138,9 @@ const Login = () => {
         type='password'
         placeholder='Enter your password'
         value={password}
-      /> */}
-      <StyledTextField
+        margin="normal"
+      />
+      {/* <StyledTextField
         type="password"
         fullWidth={true}
         margin="normal"
@@ -146,14 +148,16 @@ const Login = () => {
         variant="outlined"
         placeholder="Enter your password"
         onChange={e => setPassword(e.target.value)}
-        autoComplete="current-password"
-      />
+        autoComplete="new-password"
+      /> */}
       <Button type="submit" onClick={handleLogin}>
         LogIn
       </Button>
       <Text>
       Don't have an account? <LinkText>Registration</LinkText>
       </Text>
+    </Form>
+
 
       </Container>
 
