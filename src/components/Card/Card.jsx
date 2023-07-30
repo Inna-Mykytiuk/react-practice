@@ -6,7 +6,7 @@ import { CardList, CardText, Email } from "./Card.styled";
 
 
 const Card =  () => {
-  const [records, setrecords] = useState([]);
+  const [records, setRecords] = useState([]);
 
   //Запит прямо у компоненті
 
@@ -21,7 +21,7 @@ const Card =  () => {
 
   useEffect(() => {
     fetchData()
-    .then(data => setrecords(data))
+    .then(data => setRecords(data))
     .catch(err => console.error(err))
   }, [])
 

@@ -18,10 +18,12 @@ const Layout = () => {
               <>
               <StyledNavLink to="/login">Login</StyledNavLink>
               <StyledNavLink to="/register">Register</StyledNavLink>
+              <StyledNavLink to="/todo">Todo</StyledNavLink>
               </>
             ) : (
               <>
                 <StyledNavLink to="/cards">Cards</StyledNavLink>
+
                 <StyledNavLink to="/about">About</StyledNavLink>
                 <StyledNavLink to="/profile">Profile</StyledNavLink>
               </>
