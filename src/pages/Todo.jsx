@@ -4,12 +4,16 @@ import { SectionCard } from 'components/Card/Card.styled';
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import { LoadingIndicator } from '../components/Layout/LoadingDots';
+// import TodoForm from '../components/Todo/TodoForm'
+// import TodoTable from 'components/Todo/TodoTable';
 
 
 const Todo = () => {
   return (
     <SectionCard>
       <Container>
+      {/* <TodoTable/> */}
+      {/* <TodoForm/> */}
         <Suspense fallback={<LoadingIndicator />}>
         <Outlet />
       </Suspense>

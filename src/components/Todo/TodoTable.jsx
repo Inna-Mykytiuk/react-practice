@@ -1,59 +1,76 @@
-import { Title } from 'components/App.styled'
-import { Paper, Table, TableCell, TableContainer, TableHead, TableRow, TableBody} from '@mui/material'
+import { Title } from 'components/App.styled';
+import {
+  Paper,
+  Table,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  TableBody,
+} from '@mui/material';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline'
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'components/Button/Button';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { deleteTodo } from 'redux/actions/actions';
 
 const TodoTable = () => {
   const navigate = useNavigate();
+  const todoList = useSelector(state => state.allReducers.todoList);
+  const dispatch = useDispatch();
 
   const handleSubmit = () => {
-    navigate('/todo/form')
-  }
+    navigate('/todo/form');
+  };
 
   return (
     <div>
       <Title>Table</Title>
       <TableContainer component={Paper}>
-        <Table sx={{minWidth:650}}>
+        <Table sx={{ minWidth: 650 }}>
           <TableHead>
-          <TableRow>
-            <TableCell>Title</TableCell>
-            <TableCell>Category</TableCell>
-            <TableCell>Content</TableCell>
-            <TableCell>Date</TableCell>
-            <TableCell>
-              <BorderColorIcon/>
-              <DeleteOutlineIcon/>
-            </TableCell>
-          </TableRow>
+            <TableRow>
+              <TableCell>Title</TableCell>
+              <TableCell>Category</TableCell>
+              <TableCell>Content</TableCell>
+              <TableCell>Date</TableCell>
+              <TableCell>
+                <BorderColorIcon style={{ marginRight: '10px' }}/>
+                <DeleteOutlineIcon />
+              </TableCell>
+            </TableRow>
           </TableHead>
-          <TableBody>
-          <TableRow>
-          <TableCell>Title</TableCell>
-            <TableCell>Category</TableCell>
-            <TableCell>Content</TableCell>
-            <TableCell>Date</TableCell>
-            <TableCell>
-              <BorderColorIcon/>
-              <DeleteOutlineIcon/>
-            </TableCell>
-          </TableRow>
 
+          <TableBody>
+            {todoList.map(elem => {
+              return (
+                <TableRow key={elem.id}>
+                  <TableCell>{elem.data.title}</TableCell>
+                  <TableCell>{elem.data.category}</TableCell>
+                  <TableCell>{elem.data.content}</TableCell>
+                  <TableCell>{elem.data.dueDate}</TableCell>
+                  <TableCell>
+                      <BorderColorIcon style={{ marginRight: '10px' }} />
+                      <DeleteOutlineIcon
+                        onClick={() => dispatch(deleteTodo(elem.id))}
+                      />
+
+                  </TableCell>
+                </TableRow>
+              );
+            })}
           </TableBody>
         </Table>
       </TableContainer>
 
       <Button onClick={handleSubmit}>
-      <AddIcon/>
-      Add Todo
+        <AddIcon />
+        Add Todo
       </Button>
-
     </div>
-  )
-}
+  );
+};
 
-export default TodoTable
+export default TodoTable;
