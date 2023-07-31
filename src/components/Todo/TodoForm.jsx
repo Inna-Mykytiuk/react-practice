@@ -4,9 +4,9 @@ import { Title } from 'components/App.styled'
 import { Button } from 'components/Button/Button';
 import { Form, Field, Textarea, Select, Label } from './Todo.styled';
 import { useDispatch } from 'react-redux';
-import { addTodo } from 'redux/actions/actions';
+import { addTodo, updateTodo } from 'redux/actions/actions';
 
-const TodoForm = () => {
+const TodoForm = ({ todoId, setTodoId }) => {
   const [inputData, setInputData] = useState({
     title: '',
     category: '',
@@ -15,7 +15,7 @@ const TodoForm = () => {
   });
 
   const dispatch = useDispatch();
-  
+
 
   const navigate = useNavigate();
 
@@ -29,14 +29,29 @@ const TodoForm = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addTodo(inputData));
-    navigate('/todo/table')
-  }
+    if (todoId === null) {
+      dispatch(addTodo(inputData));
+    } else {
+      dispatch(updateTodo(todoId, inputData)); // Використовуємо todoId для оновлення таску
+    }
+    clear();
+    navigate('/todo/table');
+  };
+
+  const clear = () => {
+    setTodoId(null);
+    setInputData({
+      title: '',
+      category: '',
+      content: '',
+      dueDate: ''
+    });
+  };
 
   return (
     <>
       <Form onChange={handleChange}>
-        <Title>Todo</Title>
+      <Title>{todoId ? 'Update Form' : 'Todo Form'}</Title>
         <Field type='text' placeholder='Title' name='title' value={inputData.title} onChange={handleChange}/>
         <>
           <Label htmlFor="category">Category</Label>
@@ -49,7 +64,7 @@ const TodoForm = () => {
         </>
         <Textarea type='text' placeholder='Content' name='content' onChange={handleChange} value={inputData.content}/>
         <Field type='date' placeholder='Date' name='dueDate'  onChange={handleChange} value={inputData.dueDate}/>
-        <Button onClick={handleSubmit}>Add Todo</Button>
+        <Button onClick={handleSubmit}>{todoId ? 'Update Todo' : 'Add Todo'}</Button>
       </Form>
     </>
   )

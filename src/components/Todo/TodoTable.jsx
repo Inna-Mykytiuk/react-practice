@@ -11,12 +11,12 @@ import {
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import AddIcon from '@mui/icons-material/Add';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link} from 'react-router-dom';
 import { Button } from 'components/Button/Button';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteTodo } from 'redux/actions/actions';
 
-const TodoTable = () => {
+const TodoTable = ({ setTodoId }) => {
   const navigate = useNavigate();
   const todoList = useSelector(state => state.allReducers.todoList);
   const dispatch = useDispatch();
@@ -52,7 +52,11 @@ const TodoTable = () => {
                   <TableCell>{elem.data.content}</TableCell>
                   <TableCell>{elem.data.dueDate}</TableCell>
                   <TableCell>
-                      <BorderColorIcon style={{ marginRight: '10px' }} />
+                    <Link to='/todo/form'>
+                    <BorderColorIcon style={{ marginRight: '10px' }} onClick={() => setTodoId(elem.id)}/>
+                    </Link>
+
+
                       <DeleteOutlineIcon
                         onClick={() => dispatch(deleteTodo(elem.id))}
                       />

@@ -1,4 +1,4 @@
-import React from 'react';
+// import { useState } from 'react';
 import { Container } from 'components/App.styled';
 import { SectionCard } from 'components/Card/Card.styled';
 import { Outlet } from 'react-router-dom';
@@ -8,14 +8,16 @@ import { LoadingIndicator } from '../components/Layout/LoadingDots';
 // import TodoTable from 'components/Todo/TodoTable';
 
 
-const Todo = () => {
+const Todo = ({ todoId, setTodoId }) => {
+
+
   return (
     <SectionCard>
       <Container>
       {/* <TodoTable/> */}
       {/* <TodoForm/> */}
         <Suspense fallback={<LoadingIndicator />}>
-        <Outlet />
+        <Outlet setTodoId={setTodoId} todoId={todoId}/>
       </Suspense>
     </Container>
     </SectionCard>

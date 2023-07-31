@@ -3,6 +3,7 @@ import { lazy, Suspense } from 'react';
 import { LoadingIndicator } from '../components/Layout/LoadingDots';
 import { AuthProvider } from './auth/auth';
 import PrivateRoute from './auth/RequireAuth';
+import { useState } from 'react';
 
 const Layout = lazy(() => import('./Layout/Layout'));
 const Home = lazy(() => import('pages/Home'));
@@ -17,6 +18,7 @@ const TodoForm = lazy(() => import('./Todo/TodoForm'));
 const TodoTable = lazy(() => import('./Todo/TodoTable'));
 
 const App = () => {
+  const [todoId, setTodoId] = useState(null);
   return (
     <AuthProvider>
       <Suspense fallback={<LoadingIndicator />}>
@@ -41,9 +43,9 @@ const App = () => {
             />
 
             <Route path="todo" element={<Todo />}>
-              <Route index element={<TodoTable />}/>
-              <Route path='table' element={<TodoTable />}/>
-              <Route path="form" element={<TodoForm />} />
+              <Route index element={<TodoTable setTodoId={setTodoId}/>}/>
+              <Route path='table' element={<TodoTable setTodoId={setTodoId}/>}/>
+              <Route path="form" element={<TodoForm todoId={todoId} setTodoId={setTodoId}/>} />
             </Route>
             <Route
               path="about"
