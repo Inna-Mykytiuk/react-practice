@@ -1,12 +1,17 @@
 import styled from 'styled-components';
 
 export const StyledButton = styled.button`
-  display: inline;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   padding: 8px 12px;
   border-radius: 4px;
   border: none;
   /* width: 10%; */
   text-align: center;
+
+  margin: 0 auto;
   margin-top: 20px;
 
   font-size: 16px;

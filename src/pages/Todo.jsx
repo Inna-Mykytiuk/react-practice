@@ -1,16 +1,18 @@
 import React from 'react';
-// import TodoForm from 'components/Todo/TodoForm';
-import TodoTable from 'components/Todo/TodoTable';
 import { Container } from 'components/App.styled';
 import { SectionCard } from 'components/Card/Card.styled';
+import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
+import { LoadingIndicator } from '../components/Layout/LoadingDots';
 
 
 const Todo = () => {
   return (
     <SectionCard>
       <Container>
-      {/* <TodoForm /> */}
-      <TodoTable />
+        <Suspense fallback={<LoadingIndicator />}>
+        <Outlet />
+      </Suspense>
     </Container>
     </SectionCard>
 

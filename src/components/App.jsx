@@ -14,6 +14,8 @@ const Login  = lazy(() => import('./auth/login/LogIn'));
 const Register  = lazy(() => import('./auth/register/Register'));
 const Profile  = lazy(() => import('./Profile/Profile'));
 const Todo  = lazy(() => import('pages/Todo'));
+const TodoForm  = lazy(() => import('./Todo/TodoForm'));
+const TodoTable  = lazy(() => import('./Todo/TodoTable'));
 // const AuthRoot = lazy(() => import('./auth/AuthRoot'));
 
 
@@ -29,6 +31,10 @@ const App = () => {
             <Route path="todo" element={<Todo />} />
             <Route path="profile" element={<PrivateRoute><Profile/></PrivateRoute>} />
 
+            <Route path="todo" element={<Todo />}>
+              <Route path="form" element={<TodoForm />} />
+              <Route path="table" element={<TodoTable />} />
+            </Route>
             <Route path="about" element={<PrivateRoute><About /></PrivateRoute>}>
               <Route path="contacts" element={<Contacts />} />
             </Route>
