@@ -29,13 +29,16 @@ const TodoForm = ({ todoId, setTodoId }) => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (todoId === null) {
-      dispatch(addTodo(inputData));
-    } else {
-      dispatch(updateTodo(todoId, inputData)); // Використовуємо todoId для оновлення таску
-    }
-    clear();
+    //Заборона додавати пустий таск
+    if(inputData.title && inputData.content && inputData.dueDate && inputData.category !== '') {
+      if (todoId === null) {
+        dispatch(addTodo(inputData));
+      } else {
+        dispatch(updateTodo(todoId, inputData)); // Використовуємо todoId для оновлення таску
+      }
+      clear();
     navigate('/todo/table');
+    }
   };
 
   const clear = () => {
