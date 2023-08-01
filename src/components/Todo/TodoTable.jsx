@@ -11,7 +11,7 @@ import {
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import AddIcon from '@mui/icons-material/Add';
-import { useNavigate, Link} from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Button } from 'components/Button/Button';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteTodo } from 'redux/actions/actions';
@@ -37,7 +37,7 @@ const TodoTable = ({ setTodoId }) => {
               <TableCell>Content</TableCell>
               <TableCell>Date</TableCell>
               <TableCell>
-                <BorderColorIcon style={{ marginRight: '10px' }}/>
+                <BorderColorIcon style={{ marginRight: '10px' }} />
                 <DeleteOutlineIcon />
               </TableCell>
             </TableRow>
@@ -52,15 +52,16 @@ const TodoTable = ({ setTodoId }) => {
                   <TableCell>{elem.data.content}</TableCell>
                   <TableCell>{elem.data.dueDate}</TableCell>
                   <TableCell>
-                    <Link to='/todo/form'>
-                    <BorderColorIcon style={{ marginRight: '10px' }} onClick={() => setTodoId(elem.id)}/>
+                    <Link to="/todo/form">
+                      <BorderColorIcon
+                        style={{ marginRight: '10px' }}
+                        onClick={() => setTodoId(elem.id)}
+                      />
                     </Link>
 
-
-                      <DeleteOutlineIcon
-                        onClick={() => dispatch(deleteTodo(elem.id))}
-                      />
-
+                    <DeleteOutlineIcon
+                      onClick={() => dispatch(deleteTodo(elem.id))}
+                    />
                   </TableCell>
                 </TableRow>
               );
